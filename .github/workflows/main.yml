@@ -19,9 +19,6 @@ jobs:
           run: yarn build
           working-directory: ./app
         
-        - name: Install npx
-          run: npm install -g npx
-
         - name: Deploy
           uses: lbertenasco/s3-deploy@v1
           with:
