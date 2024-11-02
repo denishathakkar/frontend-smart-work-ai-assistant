@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        lato: ['Lato', 'sans-serif'],
+        lato2: ['Lato', 'sans-serif'],
+        lato : ['Inter']
       },
       screens: {
         xs: { max: '600px' },

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import AppContext from '../context/AppContext'
 import { RootState } from 'types/state'
-import { addMessage, selectChatRole, toggleBotTyping, toggleUserTyping } from 'store/messages'
+import { addMessage, selectChatRole, toggleBotTyping, toggleUserTyping, selectMessages } from 'store/messages'
 import { createUserMessage, getBotResponseV2 } from 'utils/helpers'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
@@ -32,7 +32,7 @@ export const WidgetKeypad = ({ botMode }: WidgetKeypadProps) => {
   const chatRole = useSelector(selectChatRole)
   const userTyping = useSelector((state: RootState) => state.messageState.userTyping)
   const { btnColor } = theme
-
+  const allMessages = useSelector(selectMessages)
 
   const handleSubmit = async () => {
     if (userInput?.length > 0) {
@@ -42,6 +42,7 @@ export const WidgetKeypad = ({ botMode }: WidgetKeypadProps) => {
       dispatch(toggleBotTyping(true))
       await getBotResponseV2({
         message: userInput.trim(),
+        allMessages : allMessages
       })
     }
   }
