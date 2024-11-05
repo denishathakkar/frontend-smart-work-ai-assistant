@@ -25,17 +25,11 @@ export const TextMessage = memo(
 
     if (position === 'message start end') {
       borderStyle = 'tw-rounded-[20px]'
-    }
-
-    if (position === 'message start') {
+    } else if (position === 'message start') {
       borderStyle = 'tw-rounded-tl-[20px] tw-rounded-br-[20px] tw-rounded-tr-[20px] tw-rounded-bl-[5px]'
-    }
-
-    if (position === 'message  end') {
+    } else if (position === 'message end') {
       borderStyle = 'tw-rounded-tl-[5px] tw-rounded-br-[20px] tw-rounded-tr-[20px] tw-rounded-bl-[20px]'
-    }
-
-    if (position === 'message') {
+    } else {
       borderStyle = 'tw-rounded-tl-[5px] tw-rounded-bl-[5px] tw-rounded-br-[20px] tw-rounded-tr-[20px]'
     }
 
@@ -44,14 +38,13 @@ export const TextMessage = memo(
         <div className={`tw-flex tw-w-5 tw-items-end`}>
           <Icon
             className={`tw-h-5 tw-w-5 tw-rounded-full ${showBotAvatar ? '' : 'tw-hidden'}`}
-            // src={botAvatar}
             icon={['fas', 'robot']}
             color={colors.primary}
           />
         </div>
         <div className="tw-flex tw-min-w-[10%] tw-max-w-[80%] tw-flex-col tw-space-x-2">
           <div
-            className={`tw-w-fit tw-text-sm ${borderStyle} tw-whitespace-pre-line tw-break-words tw-px-[15px] tw-py-[8px]`}
+            className={`tw-w-fit tw-text-sm ${borderStyle} tw-whitespace-pre-line tw-break-words tw-px-[15px] tw-py-[8px] tw-overflow-x-auto tw-whitespace-nowrap`}
             style={{ color: botMsgColor, backgroundColor: botMsgBackgroundColor }}
             dir="auto"
           >
@@ -67,4 +60,5 @@ export const TextMessage = memo(
     )
   },
 )
+
 TextMessage.displayName = 'TextMessage'
