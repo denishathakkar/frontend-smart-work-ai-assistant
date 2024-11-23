@@ -58,31 +58,20 @@ export const WidgetLayout = () => {
     return (
       <div
         className={clsx(
-          'tw-xs:w-full tw-fixed tw-bottom-0 tw-flex tw-flex-col tw-h-[99vh] tw-w-[100vw] tw-rounded-[1.8rem] tw-font-lato tw-bg-white',
+          'tw-xs:w-full tw-fixed tw-bottom-1 tw-flex tw-h-[99vh] tw-w-[100vw] tw-flex-col tw-rounded-[1.8rem] tw-mt-3 tw-font-lato tw-px-10', // Added horizontal padding (px-4)
         )}
         key="widget"
         style={{
           zIndex: 9999999,
         }}
       >
-        {/* Header */}
         <WidgetHeader botMode={botMode} />
-        
-        {/* Chat Messages */}
-        <div
-          className={clsx(
-            'tw-flex-grow tw-overflow-y-auto tw-bg-white tw-rounded-t-[1.8rem]',
-          )}
-        >
-          <WidgetMessages botMode={botMode} />
-        </div>
-  
-        {/* Keypad */}
+        <WidgetMessages botMode={botMode} />
         <WidgetKeypad botMode={botMode} />
       </div>
     );
   }
-  
+
   return (
     <AnimatePresence>
       {showHelpMessage && (
@@ -91,8 +80,8 @@ export const WidgetLayout = () => {
           className={clsx(
             'tw-fixed tw-bottom-20 tw-right-4 tw-text-sm tw-border-blue-500 tw-border tw-p-2 tw-rounded-xl tw-bg-white',
           )}
-          initial={{ y: -80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80 } }}
+          initial={{ y: -80, opacity: 0 }} // Initial position and opacity
+          animate={{ y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80 } }} // Bounce animation configuration
         >
           <div style={{ zIndex: 999999, fontWeight: 700, color: primary }}>
             <span className={'tw-mr-[3px]'}>{t('needHelp')}</span>
@@ -103,7 +92,9 @@ export const WidgetLayout = () => {
       {toggleWidget && (
         <motion.div
           className={clsx(
-            'tw-ring-black-5 tw-xs:right-0 tw-xs:w-full tw-fixed tw-bottom-0 tw-right-5 tw-z-50 tw-flex tw-h-[99vh] tw-w-[400px] tw-max-w-[90vw] tw-flex-col tw-rounded-[1.8rem] tw-bg-white tw-font-lato tw-shadow-lg',
+            // eslint-disable-next-line max-len
+            'tw-ring-black-5 tw-xs:right-0 tw-xs:w-full tw-fixed tw-bottom-5 tw-right-5 tw-z-50 tw-flex tw-w-[400px]  tw-max-w-[90vw] tw-flex-col tw-rounded-[1.8rem] tw-bg-white tw-font-lato tw-shadow-lg',
+            `tw-h-[40rem]`,
           )}
           animate={{ y: -60 }}
           exit={{ opacity: 0 }}
@@ -113,24 +104,12 @@ export const WidgetLayout = () => {
             zIndex: 9999999,
           }}
         >
-          {/* Header */}
-          <WidgetHeader botMode={botMode} />
-  
-          {/* Chat Messages */}
-          <div
-            className={clsx(
-              'tw-flex-grow tw-overflow-y-auto tw-bg-white tw-rounded-t-[1.8rem]',
-            )}
-          >
-            <WidgetMessages botMode={botMode} />
-          </div>
-  
-          {/* Keypad */}
+          <WidgetHeader botMode={botMode}/>
+          <WidgetMessages botMode={botMode} />
           <WidgetKeypad botMode={botMode} />
         </motion.div>
       )}
       <WidgetLauncher />
     </AnimatePresence>
-  );
-  
+  )
 }
