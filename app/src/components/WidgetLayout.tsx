@@ -78,10 +78,10 @@ export const WidgetLayout = () => {
         <motion.div
           key="help"
           className={clsx(
-            'tw-fixed tw-bottom-20 tw-right-4 tw-text-sm tw-border-blue-500 tw-border tw-p-2 tw-rounded-xl tw-bg-white',
+            'tw-fixed tw-bottom-10 tw-right-4 tw-text-sm tw-border-blue-500 tw-border tw-p-2 tw-rounded-xl tw-bg-white',
           )}
-          initial={{ y: -80, opacity: 0 }} // Initial position and opacity
-          animate={{ y: 0, opacity: 1, transition: { type: 'spring', stiffness: 80 } }} // Bounce animation configuration
+          initial={{ y: -10, opacity: 0 }} // Initial position and opacity
+          animate={{ y: -20, opacity: 1, transition: { type: 'spring', stiffness: 50 } }} // Bounce animation configuration
         >
           <div style={{ zIndex: 999999, fontWeight: 700, color: primary }}>
             <span className={'tw-mr-[3px]'}>{t('needHelp')}</span>
@@ -96,9 +96,9 @@ export const WidgetLayout = () => {
             'tw-ring-black-5 tw-xs:right-0 tw-xs:w-full tw-fixed tw-bottom-5 tw-right-5 tw-z-50 tw-flex tw-w-[400px]  tw-max-w-[90vw] tw-flex-col tw-rounded-[1.8rem] tw-bg-white tw-font-lato tw-shadow-lg',
             `tw-h-[40rem]`,
           )}
-          animate={{ y: -60 }}
+          animate={{ y: -50 }}
           exit={{ opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 100 }}
+          transition={{ type: 'spring', stiffness: 80 }}
           key="widget"
           style={{
             zIndex: 9999999,
