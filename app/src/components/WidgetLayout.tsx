@@ -94,11 +94,11 @@ export const WidgetLayout = () => {
           className={clsx(
             // eslint-disable-next-line max-len
             'tw-ring-black-5 tw-xs:right-0 tw-xs:w-full tw-fixed tw-bottom-5 tw-right-5 tw-z-50 tw-flex tw-w-[400px]  tw-max-w-[90vw] tw-flex-col tw-rounded-[1.8rem] tw-bg-white tw-font-lato tw-shadow-lg',
-            `tw-h-[40rem]`,
+            `tw-h-[30rem]`,
           )}
-          animate={{ y: -50 }}
+          animate={{ y: -40 }}
           exit={{ opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 80 }}
+          transition={{ type: 'spring', stiffness: 50 }}
           key="widget"
           style={{
             zIndex: 9999999,
